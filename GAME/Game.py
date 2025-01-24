@@ -236,8 +236,10 @@ def printGame(): #game print on lcd
     
     global lcd, obstaclePos, playerPosX, playerPosY
 
+    lcd.clear()
+
     # Draw obstacles
-    for obstacle in reversed(obstaclePos):
+    for obstacle in obstaclePos:
         
         lcd.setCursor(1,1)
         lcd.setCursor(1, obstacle)
@@ -246,18 +248,16 @@ def printGame(): #game print on lcd
     # Draw player
     if playerPosY == 1:  # Player on ground
         lcd.setCursor(1, 0)
-        lcd.write("|")
+        lcd.write("i")
     elif playerPosY == 0:  # Player jumping
         lcd.setCursor(0, 0)
-        lcd.write("|")
+        lcd.write("i")
 
     # Display score
     lcd.setCursor(0, columns - len(str(score)))
     lcd.write(str(score))
 
-    closest = obstaclePos[0] + 1
-    lcd.setCursor(0,3)
-    lcd.write(str(closest))
+
 
 ##########################################
 
@@ -329,6 +329,8 @@ def main():
     
             time.sleep(1)  # Game loop delay
               # Print the game state
+
+            print(obstaclePos)
         
         
         lcd.clear()
