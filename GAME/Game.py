@@ -302,11 +302,13 @@ def main():
 
         obstaclePos = []
         name = getName()  # Ask for player's name
-        jumpTimer = 3  # Timer for jump (how long the player stays in the air)
-    
+        jumpTimer = 3# Timer for jump (how long the player stays in the air)
+        score = 0
+        
         while True:
             
             generate_obstacle()
+            score = score + 1
             printGame()
             
             if inputJump(baseDistance) and jumpTimer == 3 and playerPosY == 1:  # Jumping condition
