@@ -135,7 +135,8 @@ playerPosY = 1
 score = 0
 scoresDict = {}
 name = ""
-baseDistance = 0  
+baseDistance = 0 
+randomObstacle = 6
 
 lcd = JHD1802()
 rows, columns = lcd.size()
@@ -213,10 +214,13 @@ def inputJump(baseDistance): # jump input
 
 def generate_obstacle(): #new obstacle
     
-    global obstaclePos
+    global obstaclePos, randomObstacle
 
-    if len(obstaclePos) == 0 or width - obstaclePos[-1] >= 8:
+    randomObstacle = randomObstacle - 1
+
+    if len(obstaclePos) == 0 or randomObstacle <= 0:
         obstaclePos.append(width - 1)
+        randomObstacle = random.randint(3,7)
 
 ##########################################
 
