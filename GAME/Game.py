@@ -335,6 +335,19 @@ def main():
         
         lcd.clear()
         lcd.setCursor(0,0)
+
+        def json_r(filename:str):
+            with open (filename) as f_in:
+                return json.load(f_in)
+
+        filecontent = json_r("savedScores.json")
+
+        filecontent[name] = score
+
+
+        with open ("savedScores.json", "w") as file:
+            json.dump(filecontent, file)
+        
         lcd.write(" New game? (y/n)")
         newGame = input().lower()
         lcd.clear()
