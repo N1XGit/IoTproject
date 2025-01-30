@@ -220,7 +220,7 @@ def generate_obstacle(): #new obstacle
 
     if len(obstaclePos) == 0 or randomObstacle <= 0:
         obstaclePos.append(width - 1)
-        randomObstacle = random.randint(3,7)
+        randomObstacle = random.randint(4,7)
 
 ##########################################
 
@@ -333,7 +333,7 @@ def main():
     
             move_obstacles()  # Move obstacles to the left
     
-            time.sleep(1)  # Game loop delay
+            time.sleep(0.5)  # Game loop delay
               # Print the game state
 
             print(obstaclePos)
