@@ -15,8 +15,7 @@ chords = [246,0,246,0,246,0,61,0,98,0,98,0,98,0,61,0,246,0,246,0,246,0,61,0,98,0
 try:
     for note in chords:
         if note == 0:
-            pwm.ChangeFrequency(note)
-            pwm.ChangeDutyCycle(20)
+            pwm.ChangeDutyCycle(1)
             time.sleep(0.2)
         else:
             pwm.ChangeFrequency(note)
