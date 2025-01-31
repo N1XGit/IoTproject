@@ -8,16 +8,21 @@ pwm = GPIO.PWM(12,200)
 
 pwm.start(0)
 
-chords = [246,246,246,61,98,98,98,61,246,246,246,61,98,246,493]
+chords = [246,0,246,0,246,0,61,0,98,0,98,0,98,0,61,0,246,0,246,0,246,0,61,0,98,0,246,0,493]
 
 #EADGBE
 
 try:
     for note in chords:
-        pwm.ChangeFrequency(note)
-        pwm.ChangeDutyCycle(20)
-        time.sleep(0.4)
-        print(note)
+        if note == 0:
+            pwm.ChangeFrequency(note)
+            pwm.ChangeDutyCycle(20)
+            time.sleep(0.2)
+        else:
+            pwm.ChangeFrequency(note)
+            pwm.ChangeDutyCycle(20)
+            time.sleep(0.6)
+            print(note)
 finally:
     if pwm is not None:
         pwm.stop()
