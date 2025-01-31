@@ -16,11 +16,11 @@ try:
     for note in chords:
         if note == 0:
             pwm.ChangeDutyCycle(1)
-            time.sleep(0.2)
+            time.sleep(0.1)
         else:
             pwm.ChangeFrequency(note)
             pwm.ChangeDutyCycle(20)
-            time.sleep(0.6)
+            time.sleep(0.3)
             print(note)
 finally:
     if pwm is not None:
