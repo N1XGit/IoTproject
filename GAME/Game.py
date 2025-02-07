@@ -6,6 +6,7 @@ import random
 import json
 from grove.gpio import GPIO
 from grove.helper import SlotHelper
+import requests
 
 ############## Ultrasonic ranger ##############
 
@@ -342,17 +343,9 @@ def main():
         lcd.clear()
         lcd.setCursor(0,0)
 
-        def json_r(filename:str):
-            with open (filename) as f_in:
-                return json.load(f_in)
-
-        filecontent = json_r("savedScores.json")
-
-        filecontent[name] = score
-
-
-        with open ("savedScores.json", "w") as file:
-            json.dump(filecontent, file)
+        FIREBASE_URL = "https://iot-game-scores-default-rtdb.europe-west1.firebasedatabase.app/scores.json"
+        jsondata = {name:score}
+        requests.put(FIREBASE_URL, json=jsondata)
         
         lcd.write(" New game? (y/n)")
         newGame = input().lower()
