@@ -344,7 +344,16 @@ def main():
         lcd.setCursor(0,0)
 
         FIREBASE_URL = "https://iot-game-scores-default-rtdb.europe-west1.firebasedatabase.app/scores.json"
+
+        key = name
+        fetch_url = f"{FIREBASE_URL}/{key}.json"
+        response = requests.get(fetch_url)
+        scorenew = response.json()
         jsondata = {name:score}
+        
+        if score <=
+        
+        
         requests.put(FIREBASE_URL, json=jsondata)
         
         lcd.write(" New game? (y/n)")
