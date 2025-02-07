@@ -347,11 +347,14 @@ def main():
 
         key = name
         fetch_url = f"{FIREBASE_URL}/{key}.json"
+        
         response = requests.get(fetch_url)
-        scorenew = response.json()
+        oldscore = response.json()
+        
         jsondata = {name:score}
         
-        if score <=
+        if score > oldscore:
+            requests.put(FIREBASE_URL, json=jsondata)
         
         
         requests.put(FIREBASE_URL, json=jsondata)
