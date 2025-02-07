@@ -350,7 +350,7 @@ def main():
         #oldscore = response.json()
         #print(oldscore)
 
-        data = {"Niilo":10}
+        data = {name:score}
         #if oldscore is None or score > oldscore:
         requests.put(FIREBASE_URL, json=score)
         
