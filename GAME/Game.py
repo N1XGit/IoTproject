@@ -343,7 +343,7 @@ def main():
         lcd.clear()
         lcd.setCursor(0,0)
 
-        FIREBASE_URL = "https://iot-game-scores-default-rtdb.europe-west1.firebasedatabase.app/scores.json"
+        FIREBASE_URL = "https://iot-game-scores-default-rtdb.europe-west1.firebasedatabase.app/" + name ' ".json"
 
         #response = requests.get(f"{FIREBASE_URL}/{name}.json")
     
@@ -352,7 +352,7 @@ def main():
 
         data = {name:score}
         #if oldscore is None or score > oldscore:
-        requests.patch(FIREBASE_URL, json=score)
+        requests.post(FIREBASE_URL, json=score)
         
         lcd.write(" New game? (y/n)")
         newGame = input().lower()
