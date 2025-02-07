@@ -345,7 +345,7 @@ def main():
 
         FIREBASE_URL = "https://iot-game-scores-default-rtdb.europe-west1.firebasedatabase.app/scores.json"
 
-        response = requests.get(f"{FiREBASE_URL}/{name}.json")
+        response = requests.get(f"{FIREBASE_URL}/{name}.json")
     
         if response.status_code == 200:
             oldscore = response.json()
