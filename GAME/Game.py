@@ -353,7 +353,9 @@ def main():
         
         jsondata = {name:score}
         
-        if score > oldscore:
+        if int(oldscore) == None:
+            requests.put(FIREBASE_URL, json=jsondata)
+        elif score > int(oldscore):
             requests.put(FIREBASE_URL, json=jsondata)
         
         
