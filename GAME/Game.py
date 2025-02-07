@@ -347,8 +347,7 @@ def main():
 
         response = requests.get(f"{FIREBASE_URL}/{name}.json")
     
-        if response.status_code == 200:
-            oldscore = response.json()
+        oldscore = response.json()
         
         if oldscore is None or score > oldscore:
             requests.put(f"{firebase_url}/{name}.json", json=score)
