@@ -343,7 +343,7 @@ def main():
         lcd.clear()
         lcd.setCursor(0,0)
 
-        FIREBASE_URL = "https://iot-game-scores-default-rtdb.europe-west1.firebasedatabase.app/" + name + ".json"
+        FIREBASE_URL = "https://iot-game-scores-default-rtdb.europe-west1.firebasedatabase.app/scores.json"
 
         #response = requests.get(f"{FIREBASE_URL}/{name}.json")
     
