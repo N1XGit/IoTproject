@@ -348,9 +348,10 @@ def main():
         response = requests.get(f"{FIREBASE_URL}/{name}.json")
     
         oldscore = response.json()
+        print(oldscore)
         
-        if oldscore is None or score > oldscore:
-            requests.put(f"{firebase_url}/{name}.json", json=score)
+        #if oldscore is None or score > oldscore:
+           # requests.put(f"{firebase_url}/{name}.json", json=score)
         
         lcd.write(" New game? (y/n)")
         newGame = input().lower()
