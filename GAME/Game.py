@@ -349,11 +349,16 @@ def main():
         fetch_url = f"{FIREBASE_URL}/{key}.json"
         
         response = requests.get(fetch_url)
-        oldscore = response.json()
+        data = response.json()
         
         jsondata = {name:score}
+
+        for key, value in data.items():
+            if value.get(name) == search_name:
+                oldscore = int(value["score"])
+                break
         
-        if int(oldscore) == None:
+        if oldscore == None:
             requests.put(FIREBASE_URL, json=jsondata)
         elif score > int(oldscore):
             requests.put(FIREBASE_URL, json=jsondata)
