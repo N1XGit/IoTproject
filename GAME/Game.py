@@ -352,7 +352,7 @@ def main():
 
         data = {name:score}
         #if oldscore is None or score > oldscore:
-        requests.post(FIREBASE_URL, json=score)
+        requests.post(FIREBASE_URL, json=data)
         
         lcd.write(" New game? (y/n)")
         newGame = input().lower()
