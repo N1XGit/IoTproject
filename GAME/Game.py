@@ -242,11 +242,10 @@ def printGame(): #game print on lcd
     global lcd, obstaclePos, playerPosX, playerPosY
 
     lcd.clear()
+    lcd.setCursor(1, 0)
 
     # Draw obstacles
     for obstacle in obstaclePos:
-        
-        lcd.setCursor(1,1)
         lcd.setCursor(1, obstacle)
         lcd.write("x")
 
@@ -303,8 +302,8 @@ def main():
         global lcd, sonar, playerPosX, playerPosY, obstaclePos, score, name
 
         obstaclePos = []
-        name = getName()  # Ask for player's name
-        jumpTimer = 3# Timer for jump (how long the player stays in the air)
+        name = getName()  
+        jumpTimer = 3
         score = 0
         
         while True:
@@ -313,26 +312,27 @@ def main():
             score = score + 1
             printGame()
             
-            if inputJump(baseDistance) and jumpTimer == 3 and playerPosY == 1:  # Jumping condition
-                playerPosY = 0  # Player jumps
+            if inputJump(baseDistance) and jumpTimer == 3 and playerPosY == 1:  # jumping condition
+                playerPosY = 0  # player jumps
     
             if playerPosY == 0:
-                jumpTimer -= 1  # Countdown for jump
+                jumpTimer -= 1  # countdown
     
             if jumpTimer == 0:
-                playerPosY = 1  # Player lands
-                jumpTimer = 3  # Reset jump timer
+                playerPosY = 1  # player lands
+                jumpTimer = 3  # reset jump timer
     
-            if collision():  # Check for collision with obstacles
+            if collision():  # check for collision 
                 
-                gameOver()# End game if collision happens
+                gameOver()
 
                 break
     
-            move_obstacles()  # Move obstacles to the left
+            move_obstacles()  # obstacles to left
     
-            time.sleep(0.5)  # Game loop delay
-              # Print the game state
+            time.sleep(0.5)  
+            ####################GAME LOOP#################
+              
 
             
         
