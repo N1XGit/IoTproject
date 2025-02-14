@@ -340,14 +340,10 @@ def main():
         lcd.clear()
         lcd.setCursor(0,0)
 
-        saveGame = ""
-        lcd.write(" Save Score? y/n")
-        saveGame = input()
-
-        if saveGame.lower() == "y":
-            FIREBASE_URL = "https://iot-game-scores-default-rtdb.europe-west1.firebasedatabase.app"
-            data = {name:score}
-            requests.patch(FIREBASE_URL, json=data)
+        
+        FIREBASE_URL = "https://iot-game-scores-default-rtdb.europe-west1.firebasedatabase.app/"
+        data = {name:score}
+        requests.patch(FIREBASE_URL, json=data)
         
         lcd.clear()
         lcd.write(" New game? (y/n)")
