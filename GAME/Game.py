@@ -341,13 +341,12 @@ def main():
         lcd.setCursor(0,0)
 
         
-        FIREBASE_URL = "https://iot-game-scores-default-rtdb.europe-west1.firebasedatabase.app/"
-        data = {name:score}
+        FIREBASE_URL = "https://iot-game-scores-default-rtdb.europe-west1.firebasedatabase.app/scores.json"
+        data = {name: score}
 
-        response = requests.post(FIREBASE_URL, json=data)
+        requests.patch(FIREBASE_URL, json=data)
 
-        print("Status Code:", response.status_code)
-        print("Response:", response.json())
+
         
         
         lcd.clear()
