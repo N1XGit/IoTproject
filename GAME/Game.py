@@ -356,6 +356,7 @@ def main():
         
         
         lcd.clear()
+        newGame = ""
         lcd.write(" New game? (y/n)")
         newGame = input().lower()
         lcd.clear()
