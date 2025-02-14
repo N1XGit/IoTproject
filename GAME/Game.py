@@ -348,7 +348,7 @@ def main():
         oldScore = response.json()
 
         if oldScore != None:
-            if oldScore[name] < score:
+            if oldScore < score:
                 requests.patch(FIREBASE_URL, json=data)
             else:
                 break       
