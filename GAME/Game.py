@@ -349,9 +349,7 @@ def main():
 
         if oldScore != None:
             if oldScore < score:
-                requests.patch(FIREBASE_URL, json=data)
-            else:
-                break       
+                requests.patch(FIREBASE_URL, json=data)    
         elif oldScore == None:
             requests.patch(FIREBASE_URL, json=data)
 
