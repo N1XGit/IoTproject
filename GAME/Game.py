@@ -342,8 +342,10 @@ def main():
 
         
         FIREBASE_URL = "https://iot-game-scores-default-rtdb.europe-west1.firebasedatabase.app/"
-        data = {name:score}
-        requests.update(FIREBASE_URL, json=data)
+        data = {name + "1":score}
+        data2 = {name + "2":score}
+        requests.post(FIREBASE_URL, json=data)
+        requests.put(FIREBASE_URL, json=data2)
         
         lcd.clear()
         lcd.write(" New game? (y/n)")
