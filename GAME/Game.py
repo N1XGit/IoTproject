@@ -283,9 +283,6 @@ def gameOver():
     lcd.setCursor(0, 0)
     lcd.write(" Game over!")
 
-    lcd.setCursor(1, 0)
-    lcd.write(" Score saved.")
-
     time.sleep(2)
     lcd.clear()
 
@@ -347,7 +344,7 @@ def main():
         lcd.write(" Save Score? y/n")
         saveGame = input()
 
-        if saveGame.lower() == "y"
+        if saveGame.lower() == "y":
             FIREBASE_URL = "https://iot-game-scores-default-rtdb.europe-west1.firebasedatabase.app"
             data = {name:score}
             requests.patch(FIREBASE_URL, json=data)
