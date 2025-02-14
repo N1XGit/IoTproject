@@ -347,7 +347,7 @@ def main():
         oldData = requests.get(f"{FIREBASE_URL}/{name}.json")
 
         if oldData != None:
-            oldScore = oldScore.json()
+            oldScore = oldData.json()
             if oldScore < score:
                 requests.patch(FIREBASE_URL, json=data)
             else:
