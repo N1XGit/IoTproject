@@ -347,6 +347,8 @@ def main():
         response = requests.get(f"{FIREBASE_URL}/{name}.json")
         oldScore = response.json()
 
+        FIREBASE_URL = "https://iot-game-scores-default-rtdb.europe-west1.firebasedatabase.app/scores.json"
+        
         if oldScore != None:
             if oldScore < score:
                 requests.patch(FIREBASE_URL, json=data)    
