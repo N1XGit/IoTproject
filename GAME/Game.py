@@ -334,7 +334,7 @@ def main():
             time.sleep(0.5)  # Game loop delay
               # Print the game state
 
-            print(obstaclePos)
+            
         
         
         lcd.clear()
