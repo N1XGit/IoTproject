@@ -355,18 +355,6 @@ def main():
         elif oldScore == None:
             requests.patch(FIREBASE_URL, json=data)
 
-        mittaus = list()
-        mittaus.append(name)
-        mittaus.append(score)
-    
-        lahetys = {'mittaus': mittaus}
-    
-        viesti = json.dumps(lahetys)
-        print(viesti)
-    
-        vastaus = requests.post('https://mittaukset-rami-tite24-fkg5g7dsf2eqazdx.westeurope-01.azurewebsites.net/lisaa_tieto', data=viesti)
-        print(vastaus)
-
         
         
         lcd.clear()
